@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-btn color="primary" depressed to="/">
+        <v-icon dark >mdi-home</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+
+      <CurrentUser></CurrentUser>
+      <CartLink></CartLink>
+    </v-app-bar>
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CurrentUser from './components/CurrentUser.vue';
+import CartLink from './components/CartLink.vue';
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    CurrentUser,
+    CartLink
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
